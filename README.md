@@ -1,10 +1,8 @@
-<h1 align="center"> 📚 Titulo {icon} </h1>
+<h1 align="center"> 📚 Kubernetes ⚙️  </h1>
 
 <div align="center">
 
-{badges of icons}
-{badges of icons}
-{badges of icons}
+![Static Badge](https://img.shields.io/badge/kubernetes-blue?style=for-the-badge&logo=kubernetes&logoColor=white)
   
 </div>
 

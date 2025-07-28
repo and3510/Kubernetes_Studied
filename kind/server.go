@@ -16,7 +16,7 @@ func main() {
 	http.HandleFunc("/secret", Secret)
 	http.HandleFunc("/configmap", ConfigMap)
 	http.HandleFunc("/", Hello)
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":8000", nil)
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
@@ -44,7 +44,7 @@ func Healthz(w http.ResponseWriter, r *http.Request) {
 
 	duration := time.Since(startedAt)
 
-	if duration.Seconds() > 25 {
+	if duration.Seconds() < 10 || duration.Seconds() > 30 {
 		w.WriteHeader(500)
 		w.Write([]byte(fmt.Sprintf("Duration: %v", duration.Seconds())))
 	} else {

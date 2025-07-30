@@ -15,7 +15,7 @@ spec:
         path: "/"
         backend:
           serviceName: goserver-service
-          servicePort: 80
+          servicePort: 9005
   tls:
   - hosts:
     - ""

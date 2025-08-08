@@ -1,18 +1,23 @@
----
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
+  ingressClassName: nginx  # <-- esta linha é fundamental!
+  tls:
+  - hosts:
+    - www.example.com.local
+    secretName: tls-example-local
   rules:
-    - host: www.example.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx
-                port:
-                  number: 80
+  - host: www.example.com.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
